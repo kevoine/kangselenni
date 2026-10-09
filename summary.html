@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy | Summary</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="summary">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">▣</span>
+      BudgetBuddy</a><button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation"><a href="index.html">Dashboard</a><a
+        href="allowance.html">Allowance</a><a href="expenses.html">Expenses</a><a href="wallet.html">E-Wallet</a><a
+        class="active" href="summary.html">Summary</a></nav><span class="avatar">S</span>
+  </header>
+  <main class="container">
+    <section class="page-title"><span class="title-icon">▥</span>
+      <div>
+        <h1>Weekly &amp; Monthly Summary</h1>
+        <p class="muted">See your spending patterns and track your progress.</p>
+      </div>
+    </section>
+    <section class="panel summary-filter">
+      <div class="segmented"><button type="button" class="selected" id="weekButton">This Week</button><button
+          type="button" id="monthButton">This Month</button></div><label class="date-label">Reference date<input
+          type="date" id="summaryDate"></label>
+    </section>
+    <section class="stats-grid summary-stats">
+      <article class="stat-card"><span class="stat-icon blue">▣</span>
+        <div>
+          <p>Total Allowance</p><strong id="summaryAllowance">₱0.00</strong>
+        </div>
+      </article>
+      <article class="stat-card"><span class="stat-icon pink">↘</span>
+        <div>
+          <p>Total Expenses</p><strong id="summaryExpenses">₱0.00</strong>
+        </div>
+      </article>
+      <article class="stat-card"><span class="stat-icon green">＋</span>
+        <div>
+          <p>Remaining Balance</p><strong id="summaryRemaining">₱0.00</strong>
+        </div>
+      </article>
+    </section>
+    <div class="summary-grid">
+      <section class="panel">
+        <h2>Expenses by Category</h2>
+        <div id="categoryBars" class="category-bars"></div>
+      </section>
+      <section class="panel">
+        <h2>Spending Overview</h2>
+        <div class="spending-center">
+          <div class="donut summary-donut" id="summaryDonut"><span id="summaryPercent">0%</span></div>
+        </div>
+        <p class="small-muted center" id="summaryCaption">No spending recorded for this period.</p>
+      </section>
+    </div>
+    <section class="panel section-gap">
+      <div class="panel-heading">
+        <h2>Transactions in This Period</h2><span class="small-muted" id="summaryCount">0 records</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="summaryRows"></tbody>
+        </table>
+      </div>
+      <p class="empty-state hidden" id="summaryEmpty">No recorded data for this period yet.</p>
+    </section>
+  </main>
+</body>
+
+</html>

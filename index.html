@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="dashboard">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">▣</span> BudgetBuddy</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html" class="active">Dashboard</a><a href="allowance.html">Allowance</a>
+      <a href="expenses.html">Expenses</a><a href="wallet.html">E-Wallet</a><a href="summary.html">Summary</a>
+    </nav>
+    <span class="avatar" aria-label="Student profile">S</span>
+  </header>
+  <main class="container">
+    <section class="welcome-banner">
+      <div>
+        <p class="eyebrow">YOUR MONEY, YOUR PLAN</p>
+        <h1>Welcome to BudgetBuddy!</h1>
+        <p class="muted">Small steps today, big goals tomorrow.</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">📚 <span>☕</span> 💻</div>
+    </section>
+    <section class="stats-grid">
+      <article class="stat-card"><span class="stat-icon blue">▣</span>
+        <div>
+          <p>Today's Allowance</p><strong id="todayAllowance">₱0.00</strong>
+        </div>
+      </article>
+      <article class="stat-card"><span class="stat-icon pink">↘</span>
+        <div>
+          <p>Expenses Today</p><strong id="todayExpenses">₱0.00</strong>
+        </div>
+      </article>
+      <article class="stat-card"><span class="stat-icon green">＋</span>
+        <div>
+          <p>Remaining Balance</p><strong id="todayRemaining">₱0.00</strong>
+        </div>
+      </article>
+      <article class="stat-card"><span class="stat-icon blue">▣</span>
+        <div>
+          <p>E-Wallet Balance</p><strong id="walletBalance">₱0.00</strong>
+        </div>
+      </article>
+    </section>
+    <section class="dashboard-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Recent Transactions</h2><a href="expenses.html" class="text-link">View expenses →</a>
+        </div>
+        <div id="recentTransactions" class="transaction-list"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Spending Summary</h2><span class="small-muted">Today</span>
+        </div>
+        <div class="spending-center">
+          <div class="donut" id="todayDonut"><span id="todayPercent">0%</span></div>
+          <div class="legend"><span><i class="dot blue-dot"></i> Spent</span><span><i class="dot blush-dot"></i>
+              Remaining Balance</span></div>
+        </div>
+        <p class="small-muted center" id="spendingCaption">Add an allowance and expenses to see your progress.</p>
+      </article>
+    </section>
+    <section class="quick-actions"><a class="button primary" href="allowance.html">＋ Add Allowance</a>
+      <a class="button blush-button" href="expenses.html">＋ Record Expense</a>
+    </section>
+    <p class="motivation">✦ Better money habits today, a brighter future tomorrow.</p>
+  </main>
+</body>
+
+</html>

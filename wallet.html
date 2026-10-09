@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy | E-Wallet</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="wallet">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">▣</span>
+      BudgetBuddy</a><button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation"><a href="index.html">Dashboard</a><a
+        href="allowance.html">Allowance</a><a href="expenses.html">Expenses</a><a class="active"
+        href="wallet.html">E-Wallet</a><a href="summary.html">Summary</a></nav><span class="avatar">S</span>
+  </header>
+  <main class="container">
+    <section class="page-title"><span class="title-icon">▣</span>
+      <div>
+        <h1>E-Wallet Tracker</h1>
+        <p class="muted">Track your e-wallet balance and transactions. This does not connect to a real wallet.</p>
+      </div>
+    </section>
+    <section class="wallet-hero">
+      <div>
+        <p>Current Balance</p><strong id="walletCurrent">₱0.00</strong><span class="wallet-note">Your tracked wallet
+          balance</span>
+      </div>
+      <div class="wallet-symbol" aria-hidden="true">▣</div>
+    </section>
+    <div class="wallet-forms">
+      <section class="panel">
+        <h2>Set Starting Balance</h2>
+        <form id="walletStartForm"><label>Starting balance (₱)<input id="walletStarting" type="number" min="0"
+              step="0.01" placeholder="e.g. 1000" required></label><button class="button primary" type="submit">Save
+            Starting Balance</button></form>
+        <p class="form-message" id="walletStartMessage" aria-live="polite"></p>
+      </section>
+      <section class="panel">
+        <h2>＋ Add Money</h2>
+        <form id="walletAddForm" class="wallet-form"><label>Amount (₱)<input id="walletAddAmount" type="number"
+              min="0.01" step="0.01" placeholder="Enter amount" required></label><label>Transaction name<input
+              id="walletAddName" maxlength="60" placeholder="e.g. Allowance transfer" required></label><button
+            class="button primary" type="submit">Add to Wallet</button></form>
+        <p class="form-message" id="walletAddMessage" aria-live="polite"></p>
+      </section>
+      <section class="panel">
+        <h2>− Spend Money</h2>
+        <form id="walletSpendForm" class="wallet-form"><label>Amount (₱)<input id="walletSpendAmount" type="number"
+              min="0.01" step="0.01" placeholder="Enter amount" required></label><label>Transaction name<input
+              id="walletSpendName" maxlength="60" placeholder="e.g. Online purchase" required></label><button
+            class="button blush-button" type="submit">Spend from Wallet</button></form>
+        <p class="form-message" id="walletSpendMessage" aria-live="polite"></p>
+      </section>
+    </div>
+    <section class="panel section-gap">
+      <div class="panel-heading">
+        <h2>Wallet Activity</h2><span class="small-muted">Recent transactions</span>
+      </div>
+      <div class="activity-track"><span id="walletActivityFill"></span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="walletRows"></tbody>
+        </table>
+      </div>
+      <p class="empty-state hidden" id="walletEmpty">No wallet transactions yet.</p>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy | Allowance</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="allowance">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">▣</span>
+      BudgetBuddy</a><button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation"><a href="index.html">Dashboard</a><a class="active"
+        href="allowance.html">Allowance</a><a href="expenses.html">Expenses</a><a href="wallet.html">E-Wallet</a><a
+        href="summary.html">Summary</a></nav><span class="avatar">S</span>
+  </header>
+  <main class="container">
+    <section class="page-title"><span class="title-icon">▣</span>
+      <div>
+        <h1>Daily Allowance</h1>
+        <p class="muted">Set your daily allowance and keep track of your balance.</p>
+      </div>
+    </section>
+    <div class="two-column">
+      <section class="panel">
+        <h2 id="allowanceFormTitle">Add New Allowance</h2>
+        <form id="allowanceForm" class="form-grid"><label>Amount (₱)<input id="allowanceAmount" type="number" min="0.01"
+              step="0.01" placeholder="Enter amount" required></label><label>Date<input id="allowanceDate" type="date"
+              required></label>
+          <div class="form-actions"><button class="button primary" type="submit" id="allowanceSubmit">Save
+              Allowance</button><button class="button subtle hidden" type="button" id="allowanceCancel">Cancel
+              edit</button></div>
+        </form>
+        <p class="form-message" id="allowanceMessage" aria-live="polite"></p>
+      </section>
+      <section class="balance-card">
+        <div>
+          <p>Current Allowance</p><strong id="currentAllowance">₱0.00</strong><span id="currentAllowanceDate"
+            class="small-muted">No allowance saved</span>
+        </div>
+        <div class="balance-divider"></div>
+        <div>
+          <p>Remaining Balance</p><strong id="allowanceRemaining">₱0.00</strong>
+        </div>
+      </section>
+    </div>
+    <section class="panel section-gap">
+      <div class="panel-heading">
+        <h2>Previous Allowances</h2><span class="small-muted">Newest first</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="allowanceRows"></tbody>
+        </table>
+      </div>
+      <p class="empty-state hidden" id="allowanceEmpty">No allowances yet. Add your first allowance above.</p>
+    </section>
+  </main>
+</body>
+
+</html>

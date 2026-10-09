@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy | Expenses</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body data-page="expenses">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">▣</span>
+      BudgetBuddy</a><button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation"><a href="index.html">Dashboard</a><a
+        href="allowance.html">Allowance</a><a class="active" href="expenses.html">Expenses</a><a
+        href="wallet.html">E-Wallet</a><a href="summary.html">Summary</a></nav><span class="avatar">S</span>
+  </header>
+  <main class="container">
+    <section class="page-title"><span class="title-icon">↘</span>
+      <div>
+        <h1>Expense Tracker</h1>
+        <p class="muted">Record your expenses and keep your budget on track.</p>
+      </div>
+    </section>
+    <div class="two-column expense-top">
+      <section class="panel">
+        <h2 id="expenseFormTitle">Add Expense</h2>
+        <form id="expenseForm" class="form-grid"><label>Expense Name<input id="expenseName" type="text" maxlength="60"
+              placeholder="e.g. Lunch, Bus fare" required></label><label>Amount (₱)<input id="expenseAmount"
+              type="number" min="0.01" step="0.01" placeholder="Enter amount" required></label><label>Category<select
+              id="expenseCategory" required>
+              <option value="Food">Food</option>
+              <option value="Transportation">Transportation</option>
+              <option value="School Supplies">School Supplies</option>
+              <option value="Personal Wants">Personal Wants</option>
+              <option value="Bills">Bills</option>
+              <option value="Others">Others</option>
+            </select></label><label>Date<input id="expenseDate" type="date" required></label><label
+            class="full-width">Notes (optional)<input id="expenseNotes" type="text" maxlength="140"
+              placeholder="e.g. With friends"></label>
+          <div class="form-actions"><button class="button primary" id="expenseSubmit" type="submit">Add
+              Expense</button><button class="button subtle hidden" id="expenseCancel" type="button">Cancel edit</button>
+          </div>
+        </form>
+        <p class="form-message" id="expenseMessage" aria-live="polite"></p>
+      </section>
+      <section class="panel expense-totals">
+        <article class="mini-total"><span class="stat-icon pink">₱</span>
+          <div>
+            <p>Total Expenses</p><strong id="expenseTotal">₱0.00</strong>
+          </div>
+        </article>
+        <article class="mini-total"><span class="stat-icon green">▣</span>
+          <div>
+            <p>Remaining Allowance</p><strong id="expenseRemaining">₱0.00</strong>
+          </div>
+        </article>
+        <p class="small-muted">Your remaining allowance is calculated from the selected day's allowance and expenses.
+        </p>
+      </section>
+    </div>
+    <section class="panel section-gap">
+      <div class="panel-heading">
+        <h2>Transaction History</h2><span class="small-muted" id="expenseCount">0 records</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="expenseRows"></tbody>
+        </table>
+      </div>
+      <p class="empty-state hidden" id="expenseEmpty">No expenses yet. Record your first expense above.</p>
+    </section>
+  </main>
+</body>
+
+</html>
